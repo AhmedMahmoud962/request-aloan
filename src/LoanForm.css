@@ -1,0 +1,76 @@
+/* src/App.css */
+.loan-request-form {
+  max-width: 600px;
+  margin: 50px auto;
+  padding: 20px;
+  border: 1px solid #323232;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(231, 228, 228, 0.5);
+  background-color: black;
+  color: #fff;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+hr {
+  margin: 25px;
+  width: 90%;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  padding-bottom: 5px;
+}
+
+input,
+select {
+  width: 95%;
+  padding: 10px;
+  /* border: 1px solid #ccc; */
+  border: none;
+  border-radius: 5px;
+  background-color: #222;
+  transition: all .5s;
+  color: #fff;
+}
+
+/* input:hover {
+  width: 95%;
+
+} */
+
+
+
+button {
+  background-color: #15a2da;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #318fb5;
+}
+
+#modal {
+  position: absolute;
+  top: 0%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0000002b;
+  width: 100vw;
+  height: 100vh;
+}
+
+#modal-contant {
+  background: #fff;
+  color: green;
+  text-align: center;
+  width: 90%;
+}
