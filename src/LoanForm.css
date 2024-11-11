@@ -25,9 +25,9 @@ label {
   padding-bottom: 5px;
 }
 
-input,
+.input-data,
 select {
-  width: 95%;
+  width: 98%;
   padding: 10px;
   /* border: 1px solid #ccc; */
   border: none;
@@ -37,12 +37,16 @@ select {
   color: #fff;
 }
 
-/* input:hover {
-  width: 95%;
+select {
+  width: 100%;
+}
 
-} */
-
-
+.form-group .check {
+  text-align: center;
+  display: flex;
+  justify-content: flex-start;
+  align-items: baseline;
+}
 
 button {
   background-color: #15a2da;
@@ -66,6 +70,7 @@ button:hover {
   background: #0000002b;
   width: 100vw;
   height: 100vh;
+  border-radius: 10px;
 }
 
 #modal-contant {

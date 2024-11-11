@@ -3,7 +3,7 @@ import "./LoanForm.css";
 import Modal from "./Modal";
 
 const LoanRequestForm = () => {
-  const [loanInputs, setloanInputs] = useState({
+  const [loanInputs, setLoanInputs] = useState({
     name: "",
     age: "",
     phoneNumber: "",
@@ -20,33 +20,33 @@ const LoanRequestForm = () => {
           <div className="form-group">
             <label>Name</label>
             <input
+              className="input-data"
               value={loanInputs.name}
               placeholder="Enter Your Name"
               onChange={(event) => {
-                setloanInputs({ ...loanInputs, name: event.target.value });
+                setLoanInputs({ ...loanInputs, name: event.target.value });
               }}
             />
           </div>
           <div className="form-group">
             <label>Phone Number</label>
             <input
+              className="input-data"
               value={loanInputs.phoneNumber}
               placeholder="Enter Your Phone Number"
               onChange={(event) => {
-                setloanInputs({
-                  ...loanInputs,
-                  phoneNumber: event.target.value,
-                });
+                setLoanInputs({ ...loanInputs, phoneNumber: event.value });
               }}
             />
           </div>
           <div className="form-group">
             <label>Age</label>
             <input
+              className="input-data"
               value={loanInputs.age}
               placeholder="Enter Your Age"
               onChange={(event) => {
-                setloanInputs({
+                setLoanInputs({
                   ...loanInputs,
                   age: event.target.value,
                 });
@@ -58,7 +58,7 @@ const LoanRequestForm = () => {
             <select
               value={loanInputs.salaryRange}
               onChange={(event) => {
-                setloanInputs({
+                setLoanInputs({
                   ...loanInputs,
                   salaryRange: event.target.value,
                 });
@@ -70,19 +70,19 @@ const LoanRequestForm = () => {
               <option>above 2000$</option>
             </select>
           </div>
-          <div style={{ textAlign: "center" }} className="form-group">
-            <label>Are You Employee? </label>
+          <div style={{ textAlign: "center" }} className="form-group check">
             <input
               className="checkbox"
               type="checkbox"
               checked={loanInputs.isEmployee}
               onChange={(event) => {
-                setloanInputs({
+                setLoanInputs({
                   ...loanInputs,
                   isEmployee: event.target.checked,
                 });
               }}
             />
+            <label>Are You Employee? </label>
           </div>
 
           <button type="submit">Submit </button>
