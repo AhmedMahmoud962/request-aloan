@@ -41,7 +41,7 @@ select {
   width: 100%;
 }
 
-.form-group .check {
+.check {
   text-align: center;
   display: flex;
   justify-content: flex-start;

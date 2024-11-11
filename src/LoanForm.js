@@ -3,6 +3,7 @@ import "./LoanForm.css";
 import Modal from "./Modal";
 
 const LoanRequestForm = () => {
+  const [btnIsDisabled, setBtnIsDisabled] = useState(false);
   const [loanInputs, setLoanInputs] = useState({
     name: "",
     age: "",
@@ -85,7 +86,15 @@ const LoanRequestForm = () => {
             <label>Are You Employee? </label>
           </div>
 
-          <button type="submit">Submit </button>
+          <button
+            type="submit"
+            disabled={btnIsDisabled}
+            onClick={(event) => {
+              alert("Submitted");
+            }}
+          >
+            Submit{" "}
+          </button>
         </form>
       </div>
       {/* <Modal style={{ display: "none" }} /> */}
