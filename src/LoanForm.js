@@ -3,17 +3,47 @@ import "./LoanForm.css";
 import Modal from "./Modal";
 
 const LoanRequestForm = () => {
-  const [btnIsDisabled, setBtnIsDisabled] = useState(false);
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const [loanInputs, setLoanInputs] = useState({
     name: "",
-    age: "",
     phoneNumber: "",
-    isEmployee: false,
+    age: "",
     salaryRange: "",
+    isEmployee: false,
   });
-
+  const handelFormSubmit = (event) => {
+    event.preventDefault();
+    setErrorMessage(null);
+    console.log("loanInputs");
+    const { age, phoneNumber } = loanInputs;
+    if (age < 18 || age > 100) {
+      setErrorMessage("Age should be between 18 and 100");
+    } else if (phoneNumber.length < 10 || phoneNumber.length >= 12) {
+      setErrorMessage("Phone number is not valid");
+    }
+    setShowModal(true);
+  };
+  const handleDivClick = (event) => {
+    console.log("divClick");
+    if (showModal) {
+      setShowModal(false);
+    }
+  };
+  const btnIsDisabled =
+    loanInputs.name === "" ||
+    loanInputs.phoneNumber === "" ||
+    loanInputs.age === "" ||
+    loanInputs.salaryRange === "" ||
+    loanInputs.isEmployee === false;
+  // let btnClasses = "";
+  // if (btnIsDisabled) {
+  //   btnClasses = "disabled";
+  // } else {
+  //   btnClasses = "";
+  // }
   return (
-    <div>
+    <div onClick={handleDivClick}>
       <div className="loan-request-form">
         <h2 style={{ textAlign: "center" }}>Requesting a Loan</h2>
         <hr />
@@ -32,17 +62,22 @@ const LoanRequestForm = () => {
           <div className="form-group">
             <label>Phone Number</label>
             <input
+              type="number"
               className="input-data"
               value={loanInputs.phoneNumber}
               placeholder="Enter Your Phone Number"
               onChange={(event) => {
-                setLoanInputs({ ...loanInputs, phoneNumber: event.value });
+                setLoanInputs({
+                  ...loanInputs,
+                  phoneNumber: event.target.value,
+                });
               }}
             />
           </div>
           <div className="form-group">
             <label>Age</label>
             <input
+              type="number"
               className="input-data"
               value={loanInputs.age}
               placeholder="Enter Your Age"
@@ -89,15 +124,14 @@ const LoanRequestForm = () => {
           <button
             type="submit"
             disabled={btnIsDisabled}
-            onClick={(event) => {
-              alert("Submitted");
-            }}
+            onClick={handelFormSubmit}
+            className={btnIsDisabled ? "disabled" : ""}
           >
-            Submit{" "}
+            Submit Request
           </button>
         </form>
       </div>
-      {/* <Modal style={{ display: "none" }} /> */}
+      <Modal errorMessage={errorMessage} isVisible={showModal} />
     </div>
   );
 };

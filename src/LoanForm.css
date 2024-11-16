@@ -77,5 +77,19 @@ button:hover {
   background: #fff;
   color: green;
   text-align: center;
-  width: 90%;
+  width: 50%;
+  border-radius: 30px;
+}
+#modal-contant h1 {
+  font-size: 22px;
+}
+.disabled {
+  background-color: gray !important;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 600px) {
+  #modal-contant h1 {
+    font-size: 15px;
+  }
 }
