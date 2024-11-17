@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./LoanForm.css";
 import Modal from "./Modal";
+import MyInput from "./components/MyInput";
 
 const LoanRequestForm = () => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -42,13 +43,22 @@ const LoanRequestForm = () => {
   // } else {
   //   btnClasses = "";
   // }
+  const handlePhoneNumberInputChange = (value) => {
+    setLoanInputs({ ...loanInputs, phoneNumber: value });
+  };
+  const handleAgeInputChange = (value) => {
+    setLoanInputs({ ...loanInputs, age: value });
+  };
+  const handleNameInputChange = (value) => {
+    setLoanInputs({ ...loanInputs, name: value });
+  };
   return (
     <div onClick={handleDivClick}>
       <div className="loan-request-form">
         <h2 style={{ textAlign: "center" }}>Requesting a Loan</h2>
         <hr />
         <form>
-          <div className="form-group">
+          {/* <div className="form-group">
             <label>Name</label>
             <input
               className="input-data"
@@ -58,8 +68,23 @@ const LoanRequestForm = () => {
                 setLoanInputs({ ...loanInputs, name: event.target.value });
               }}
             />
-          </div>
-          <div className="form-group">
+          </div> */}
+          <MyInput
+            inputName="Name"
+            value={loanInputs.name}
+            handleChange={handleNameInputChange}
+          />
+          <MyInput
+            inputName="Age"
+            value={loanInputs.age}
+            handleChange={handleAgeInputChange}
+          />
+          <MyInput
+            inputName="Phone Number"
+            value={loanInputs.phoneNumber}
+            handleChange={handlePhoneNumberInputChange}
+          />
+          {/* <div className="form-group">
             <label>Phone Number</label>
             <input
               type="number"
@@ -73,8 +98,8 @@ const LoanRequestForm = () => {
                 });
               }}
             />
-          </div>
-          <div className="form-group">
+          </div> */}
+          {/* <div className="form-group">
             <label>Age</label>
             <input
               type="number"
@@ -88,7 +113,7 @@ const LoanRequestForm = () => {
                 });
               }}
             />
-          </div>
+          </div> */}
           <div className="form-group">
             <label>Salley</label>
             <select
